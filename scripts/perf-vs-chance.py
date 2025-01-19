@@ -14,7 +14,7 @@ def generate_3sat_example(num_vars, num_clauses):
 def format_3sat_expression(clauses):
     formatted_clauses = []
     for clause in clauses:
-        formatted_clause = " ∨ ".join([f"x{abs(literal)}" if literal > 0 else f"¬x{abs(literal)}" for literal in clause])
+        formatted_clause = " V ".join([f"x{abs(literal)}" if literal > 0 else f"¬x{abs(literal)}" for literal in clause])
         formatted_clauses.append(f"({formatted_clause})")
     return " ∧ ".join(formatted_clauses)
 
@@ -54,8 +54,8 @@ def plot_3sat_graph(clauses, solution=None, title="3SAT Graph"):
 
 def test_3sat():
 
-    num_vars = 4
-    num_clauses = 3
+    num_vars = 12
+    num_clauses = 4
     clauses = generate_3sat_example(num_vars, num_clauses)
 
     print("Expresia 3SAT generată:")
